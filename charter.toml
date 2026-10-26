@@ -1,0 +1,25 @@
+# Rules of this repo checked by kiln's `charter` command: after each edit (Claude Code hook),
+# before each commit (pre-commit) and in CI. Bans hold everywhere. Ratchets: the existing debt
+# is a ceiling that only goes down. Floors: a value that only goes up. Values: `charter --detail`.
+# kiln keeps this file current (`kiln update`); budgets and floors are the project's to lower
+# and raise, and its own rules can be added here.
+
+size = "ember"
+exclude = ["/migrations/", "/notebooks/"]
+unverified_rules = "scripts/ci/unverified-rules.txt"
+
+[bans.forbidden-tools]
+id = "UV-PODMAN"
+
+# References to an audit report ("audit H36", "(CART-06)") rot with it. Add to `prefixes` the
+# prefixes of the project's audit findings as they come.
+[bans.audit-references]
+id = "AUDIT-REFERENCES"
+prefixes = "AUDIT"
+exclude = '(^docs/|^charter\.toml$|/migrations/|-lock\.yaml$|\.lock$)'
+
+[ratchets.file-size]
+id = "FILE-SIZE"
+files = []
+suffixes = [".py", ".ts", ".tsx", ".vue", ".astro", ".css", ".mjs"]
+budget = 0

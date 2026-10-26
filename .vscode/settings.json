@@ -1,0 +1,15 @@
+{
+  "editor.formatOnSave": true,
+  "editor.rulers": [100],
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "search.exclude": {
+    ".claude/worktrees": true
+  },
+  "git.detectWorktrees": true,
+  "scm.alwaysShowRepositories": true,
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false
+  }
+}

@@ -1,1 +1,21 @@
 /target
+
+# kiln
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+.claude/settings.local.json
+.claude/worktrees/
+.claude/kiln
+.serena/
+CLAUDE.local.md
+*.log
+logs/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+*:Zone.Identifier

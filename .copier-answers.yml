@@ -1,0 +1,34 @@
+# kiln's answers for this project: never edit by hand, `kiln set` changes them.
+_commit: v0.4.9-197-g546ecbe
+_src_path: https://github.com/antoine-tena/kiln.git
+backend: none
+ci_runner: github
+compact_window: 400000
+created: '2026-10-26'
+description: 'kiln''s template engine, in Rust: renders a Copier-format template and
+    updates the projects made from it with a three-way merge.'
+frontend: none
+kept:
+- .gitignore
+- README.md
+language: fr
+language_comments: en
+language_commits: en
+language_custom: true
+language_docs: en
+language_tickets: en
+language_ui: en
+name: slake
+north_star: 'kiln runs on slake: every stack rendered byte for byte as Copier does,
+    kiln update in 5 s or less'
+owner: antoine-tena
+podman: false
+prod_health_url: ''
+project_type: app
+serena: false
+size: ember
+statusline_ci: true
+team:
+- antoine-tena
+timezone: Europe/Paris
+title: slake

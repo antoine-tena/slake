@@ -1,0 +1,36 @@
+# Guards and CI checks replayed before each commit.
+#
+# Installed once, at the root of the repo: kiln install (or: uv tool install pre-commit &&
+# pre-commit install). The hook holds for the main tree and every worktree. Replay everything:
+#   pre-commit run --all-files
+# Local hooks call the project's tools (uv) and `charter`, installed with kiln: fast linters on
+# the committed files alone. Typing, tests and the CI run only when a release goes out (skill
+# /kiln:release), never at a push to develop.
+default_install_hook_types: [pre-commit]
+default_stages: [pre-commit]
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      # [NO-COMMIT-ON-MAIN]: refuses any commit made on main or develop. GitHub also refuses a
+      # force-push of develop and any push on main (rulesets).
+      - id: no-commit-to-branch
+        args: [--branch, main, --branch, develop]
+      - id: check-added-large-files
+        args: [--maxkb=1024]
+      - id: check-merge-conflict
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+      - id: check-yaml
+        # The pnpm lockfile holds several YAML documents.
+        args: [--allow-multiple-documents]
+      - id: check-json
+
+  - repo: local
+    hooks:
+      - id: charter
+        name: charter (charter.toml, committed files)
+        entry: charter file
+        language: system
