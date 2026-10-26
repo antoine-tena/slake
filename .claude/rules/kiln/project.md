@@ -1,8 +1,8 @@
 <!-- Written by kiln and kept current by `kiln update`: do not edit, it would be overwritten.
 Project rules go in CLAUDE.md or in .claude/rules/ outside kiln/. -->
-# Slake: working here
+# slake: working here
 
-Slake.
+kiln's template engine, in Rust: renders a Copier-format template and updates the projects made from it with a three-way merge.
 
 Size: **Ember**, a small app or site, one or two people, low stakes (`kiln set size=…` changes it).
 No stack of kiln here: its common part only (CI, hooks, rules, charter).
@@ -15,8 +15,11 @@ The repo is generated and kept current by [kiln](https://github.com/antoine-tena
   included; `kiln set key=value` changes a setting of the project (stack, team, podman…).
 
 ## Language
-- Talk with the user in English. Docs (README, `docs/`), commit messages, code
-  comments, tickets and the texts users read are in English too.
+- Talk with the user in French.
+- Docs (README, `docs/`): English. Commit messages:
+  English. Code comments: English. Tickets of
+  `docs/backlog/`: English. Texts users read (pages, messages,
+  figures): English.
 - Code identifiers are always English. The keywords of `docs/backlog/` (`Type`, `Status`,
   `todo`, section titles) stay English whatever the language.
 

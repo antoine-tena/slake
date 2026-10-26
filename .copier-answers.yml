@@ -5,15 +5,22 @@ backend: none
 ci_runner: github
 compact_window: 400000
 created: '2026-10-26'
-description: Slake.
+description: 'kiln''s template engine, in Rust: renders a Copier-format template and
+    updates the projects made from it with a three-way merge.'
 frontend: none
 kept:
 - .gitignore
 - README.md
-language: en
-language_custom: false
+language: fr
+language_comments: en
+language_commits: en
+language_custom: true
+language_docs: en
+language_tickets: en
+language_ui: en
 name: slake
-north_star: Slake in service
+north_star: 'kiln runs on slake: every stack rendered byte for byte as Copier does,
+    kiln update in 5 s or less'
 owner: antoine-tena
 podman: false
 prod_health_url: ''
@@ -24,4 +31,4 @@ statusline_ci: true
 team:
 - antoine-tena
 timezone: Europe/Paris
-title: Slake
+title: slake
