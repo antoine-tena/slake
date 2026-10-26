@@ -15,6 +15,7 @@ that adds, moves or removes a directory, a domain or an entry point. One line pe
 it holds; no copy of the code.
 
 - `README.md`: what slake is, why, its targets (public showcase); `LICENSE`: MIT.
+- `docs/contract.md`: the JSON contract kiln calls slake with (version 1).
 - `docs/backlog/`: the work to do; `charter.toml`: the checked rules; `.claude/rules/kiln/`:
   kiln's rules for Claude.
 
