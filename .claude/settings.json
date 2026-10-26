@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "env": {
+    "KILN_PROJECT": "slake",
+    "KILN_BACKEND_DIR": "",
+    "KILN_FRONTEND_DIR": "",
+    "KILN_TEST_ENV": ""
+  },
+  "autoCompactWindow": 400000,
+  "extraKnownMarketplaces": {
+    "kiln": {
+      "source": {
+        "source": "github",
+        "repo": "antoine-tena/kiln",
+        "ref": "main"
+      },
+      "autoUpdate": true
+    }
+  },
+  "enabledPlugins": {
+    "kiln@kiln": true
+  },
+  "permissions": {
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./**/.env)",
+      "Read(./**/*.pem)",
+      "Read(./**/*.key)",
+      "Read(./**/*.p12)"
+    ]
+  }
+}

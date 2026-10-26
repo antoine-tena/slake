@@ -1,0 +1,30 @@
+# slake
+
+kiln's template engine, in Rust: renders a Copier-format template and updates the projects made
+from it with a three-way merge. Its one consumer is kiln (`~/code/kiln`, public
+`antoine-tena/kiln`), which will call the binary with JSON in and out.
+
+<!-- This file belongs to the project: kiln wrote it once and never changes it. kiln's rules live
+in .claude/rules/kiln/ and are kept current by `kiln update`. Write here what Claude cannot
+guess about this project, and keep it under 200 lines: every session reads it. -->
+
+## Repo map
+
+Where to look, so as not to explore: read it before opening files, and update it in the commit
+that adds, moves or removes a directory, a domain or an entry point. One line per place, what
+it holds; no copy of the code.
+
+- `README.md`: what slake is, why, its targets (public showcase); `LICENSE`: MIT.
+- `docs/backlog/`: the work to do; `charter.toml`: the checked rules; `.claude/rules/kiln/`:
+  kiln's rules for Claude.
+
+## Notes
+
+- Parity before anything else: the same files as Copier, byte for byte, for every stack of
+  kiln's `tests/test_template.py`, then a replay of kiln's `tests/test_e2e.py` (every kiln
+  release since v0.3.0). Only throwaway clones are updated, never `antoine-tena/kiln-rehearsal`.
+- No breaking change for kiln's repos: every existing `.copier-answers.yml` (`_commit`,
+  `_src_path`, answers, `kept`) is read as it is, and `copier.yml` keeps its format. Copier
+  stays kiln's fallback, behind a setting, until parity is proven.
+- kiln has no Rust stack yet (kiln's T-320, T-321): `kiln check` runs `charter` only, and
+  Rust's own checks are this repo's to run. A gap of kiln met here is fixed in kiln.
