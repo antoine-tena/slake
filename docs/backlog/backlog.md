@@ -12,27 +12,6 @@ North star: **kiln runs on slake: every stack rendered byte for byte as Copier d
 
 ## 🔴 Critical
 
-### T-01 · Agree on the layout and the JSON contract before any code
-- **Type**: task
-- **Status**: todo
-- **Opened**: 2026-10-26
-- **Effort**: S · **Owner**: — · **Due**: —
-- **Origin**: the founding plan, "Rewrite Copier in Rust, for kiln" (26 October 2026)
-
-`kiln update` spends ~80% of its time in Copier (hyperfine, 26 October 2026): 11–12 s on a small
-repo, the template's mirror refreshed 5 times (~3.5 s), ~3.5 s of Python CPU, mostly Jinja2
-compiling then rendering the old and new revisions; `kiln new` spends ~1.5 s of Python CPU,
-mostly Copier. kiln works around Copier in five places: `migrations.py` (renames across
-releases), `resolve_kiln_ref_conflicts` in `update.py` (a spurious conflict at each promotion,
-the old revision named by `git describe`), conflict markers searched for after the fact
-(`update.py`), its own no-overwrite laying (`adopt.py`), extra full renders for the drift of
-frozen files (`frozen.py`).
-
-- [ ] Read kiln's `src/kiln/{update,new,adopt,frozen,migrations}.py`, `copier.yml`, and
-  Copier 9.18's update (`copier/_main.py`, `_apply_update`).
-- [ ] Propose the crate's layout and the JSON contract; once agreed, write the contract in
-  `docs/contract.md` and the layout in the repo map of `CLAUDE.md`.
-
 ## 🟠 Important
 
 ### T-02 · Render a revision byte for byte like Copier
@@ -110,7 +89,8 @@ out.
 - **Origin**: the founding plan, constraints and proof
 
 In kiln: its five uses of Copier go through slake, Copier stays behind a setting until T-02 and
-T-04 prove parity, then goes. No breaking change: same rendered files, `copier.yml` keeps its
+T-04 prove parity, then goes. It starts after kiln's public launch (11 November 2026): slake moves on in
+its own repo meanwhile (antoine, 26 October 2026). No breaking change: same rendered files, `copier.yml` keeps its
 format.
 
 - [ ] Measured with hyperfine on throwaway copies, before and after: `kiln update` on a small
