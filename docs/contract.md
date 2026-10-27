@@ -17,9 +17,10 @@ Every answers file Copier wrote is read as it is, and `copier.yml` keeps its for
 {"url": "https://github.com/antoine-tena/kiln.git", "ref": "v0.4.9"}
 ```
 
-- `url`: a git repository, remote or local. slake keeps a bare mirror of it in its cache and
-  reads every revision from there; it fetches at most once per command, and only when `ref` is
-  not in the mirror yet.
+- `url`: a git repository, remote or local. slake keeps a bare mirror of a remote one in its
+  cache and reads every revision from there; it fetches at most once per command, and only when
+  `ref` is not in the mirror yet or names a branch, which moves. A local repository is read in
+  place, committed files only.
 - `ref`: what kiln picked (a tag, a `git describe` name, a branch or a SHA). It is recorded
   verbatim as `_commit` in the answers file, as Copier records it.
 
@@ -31,7 +32,10 @@ template development); `commit`, optional, is what to record as `_commit`:
 ```
 
 The template is the directory's `copier.yml` and its `template/` subdirectory, files ending in
-`.jinja` rendered, macros imported from the root (`macros.jinja`).
+`.jinja` rendered, macros imported from the root (`macros.jinja`). As with Copier, the root of a
+git repository (`.git` a directory) leaves out the files git ignores, and its files get the
+default permissions plus the executable bits; any other directory gives every file with its
+exact permissions, and its empty directories.
 
 ### Answers
 

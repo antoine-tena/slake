@@ -6,7 +6,7 @@ Everything left to do on slake, in a single list ordered by priority. Started on
 
 North star: **kiln runs on slake: every stack rendered byte for byte as Copier does, kiln update in 5 s or less**.
 
-**Next free: T-09.**
+**Next free: T-10.**
 
 ---
 
@@ -14,34 +14,34 @@ North star: **kiln runs on slake: every stack rendered byte for byte as Copier d
 
 ## 🟠 Important
 
-### T-02 · Render a revision byte for byte like Copier
+### T-09 · The parity bench in kiln, for every change of the template
 - **Type**: task
 - **Status**: todo
-- **Opened**: 2026-10-26
-- **Effort**: L · **Owner**: — · **Due**: —
-- **Origin**: the founding plan, items 2 and 3
+- **Opened**: 2026-10-27
+- **Effort**: S · **Owner**: — · **Due**: —
+- **Origin**: T-01 (the bench lives in kiln), T-02
 
-The subset of Copier kiln uses, with minijinja and templates compiled once: the questions of
-`copier.yml` (`type`, `default`, `help`, `when`, `choices`, `validator`), `_skip_if_exists`,
-Jinja in file and folder names, the `.jinja` suffix, `template/` as the subdirectory, macros
-imported from `macros.jinja` at the template repo's root, the filters the template uses
-(Jinja2's, and Ansible's `regex_search`, `strftime`, `to_nice_yaml` with PyYAML's exact
-output), `_copier_answers`, `_copier_conf.answers_file` and `.vcs_ref_hash`, file modes.
-
-- [ ] Every stack of kiln's `tests/test_template.py` rendered by both engines: identical, byte
-  for byte, modes included.
-- [ ] The whole template (106 `.jinja` files, 64 conditional paths) in under 100 ms.
+T-02 was proven by a bench run by hand: each case of kiln's `tests/test_template.py` (41
+stacks, podman, adopt with `kept`, sizes, user defaults, four refusals) rendered by Copier and
+by `slake render`, the trees compared byte for byte (modes and empty directories included),
+the response's `answers` and `files` checked. It goes into kiln as
+`tests/test_slake_parity.py`, with the YAML fuzzer (PyYAML against `examples/probe.rs`) and
+the Jinja2 snippets, so that every change of the template is rendered by both engines.
 
 ### T-03 · One fetch per command, from a cached bare mirror
 - **Type**: task
 - **Status**: todo
 - **Opened**: 2026-10-26
-- **Effort**: M · **Owner**: — · **Due**: —
+- **Effort**: S · **Owner**: — · **Due**: —
 - **Origin**: the founding plan, item 1
 
 A bare mirror per template URL in the user's cache, any revision read from it, no network when
 the revision is already there. Each revision rendered once per command, shared by the update,
 the drift report of excluded files and the renames (item 2).
+
+`slake render` already reads from the mirror (`src/source.rs`): fetched only when the ref is
+missing or names a branch, never with `offline`. Left: one render per revision and per
+command, shared by the steps of T-04.
 
 ### T-04 · Update like Copier's inline mode, with a JSON report
 - **Type**: task

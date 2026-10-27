@@ -19,7 +19,8 @@ for that part can be much faster, and give kiln the update it needs:
 - one fetch per command, from a cached bare mirror of the template;
 - each revision rendered once per command, with
   [minijinja](https://github.com/mitsuhiko/minijinja);
-- exact revisions: the answers file records the commit, never a `git describe` name;
+- stable revisions: the answers file records the revision kiln asked for, and an update renders
+  the old one under that name, so a promoted tag no longer brings a spurious conflict;
 - Copier's inline three-way update, plus a JSON report of what was added, updated, deleted and
   conflicted, and of what changed in excluded files;
 - excluded paths, declared renames and an adopt mode as first-class inputs;
@@ -27,6 +28,21 @@ for that part can be much faster, and give kiln the update it needs:
 
 Targets, measured with hyperfine: `kiln update` on a small repo from 11–12 s to 5 s or less,
 `kiln new` from 5 s to 3.5 s or less.
+
+## Usage
+
+`slake <command>` reads one JSON request on its standard input and writes one JSON response on
+its standard output; [docs/contract.md](docs/contract.md) describes them. `slake render` is the
+one command so far: it renders a revision into a new directory, the same files as
+`copier copy --defaults`, byte for byte.
+
+```sh
+echo '{"contract": 1,
+       "template": {"url": "https://github.com/antoine-tena/kiln.git", "ref": "v0.4.9"},
+       "answers": {"name": "demo"}, "destination": "demo"}' | slake render
+```
+
+Build it with `cargo build --release` (the toolchain is pinned in `rust-toolchain.toml`).
 
 ## The name
 
