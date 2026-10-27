@@ -11,5 +11,6 @@ pub mod jinja;
 pub mod posix;
 pub mod pyfmt;
 pub mod questions;
+pub mod render;
 pub mod template;
 pub mod yaml;

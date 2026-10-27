@@ -20,6 +20,7 @@ it holds; no copy of the code.
   questions); `src/git.rs`: git's command line; `src/error.rs`: failures by kind.
 - `src/questions/`: Copier's questionnaire (types, choices, validators); `src/answers.rs`,
   `src/cast.rs`: answers by priority and the render context.
+- `src/render.rs`: paths, contents and modes of a render.
 - `src/jinja/`: Jinja on minijinja as Copier configures it (Jinja2 and Ansible filters, Python
   methods, `list.append`); `src/posix.rs`: paths normalized like Python's `PurePosixPath`.
 - `src/yaml/`: PyYAML's loader; `src/yaml/dump/`: its emitter, for `to_nice_yaml`.
