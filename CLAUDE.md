@@ -16,6 +16,9 @@ it holds; no copy of the code.
 
 - `README.md`: what slake is, why, its targets (public showcase); `LICENSE`: MIT.
 - `docs/contract.md`: the JSON contract kiln calls slake with (version 1).
+- `src/main.rs`: the binary, JSON in and out; `src/commands/`: one module per command
+  (`render`); `src/contract.rs`: requests checked, responses written; `src/source.rs`: where a
+  revision is read (cached mirror, local repository, directory).
 - `src/template.rs`: a revision's files; `src/config.rs`: its `copier.yml` (settings refused,
   questions); `src/git.rs`: git's command line; `src/error.rs`: failures by kind.
 - `src/questions/`: Copier's questionnaire (types, choices, validators); `src/answers.rs`,
