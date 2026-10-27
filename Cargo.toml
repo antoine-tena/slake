@@ -4,3 +4,5 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+minijinja = { version = "3.0.3", features = ["preserve_order", "serde"] }
+serde_json = { version = "1", features = ["preserve_order"] }
