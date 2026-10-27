@@ -16,6 +16,8 @@ it holds; no copy of the code.
 
 - `README.md`: what slake is, why, its targets (public showcase); `LICENSE`: MIT.
 - `docs/contract.md`: the JSON contract kiln calls slake with (version 1).
+- `src/template.rs`: a revision's files; `src/config.rs`: its `copier.yml` (settings refused,
+  questions); `src/git.rs`: git's command line; `src/error.rs`: failures by kind.
 - `src/jinja/`: Jinja on minijinja as Copier configures it (Jinja2 and Ansible filters, Python
   methods, `list.append`); `src/posix.rs`: paths normalized like Python's `PurePosixPath`.
 - `src/yaml/`: PyYAML's loader; `src/yaml/dump/`: its emitter, for `to_nice_yaml`.
