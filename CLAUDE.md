@@ -16,7 +16,7 @@ it holds; no copy of the code.
 
 - `README.md`: what slake is, why, its targets (public showcase); `LICENSE`: MIT.
 - `docs/contract.md`: the JSON contract kiln calls slake with (version 1).
-- `src/yaml/`: PyYAML's loader (YAML 1.1 scalars, anchors, merge keys).
+- `src/yaml/`: PyYAML's loader; `src/yaml/dump/`: its emitter, for `to_nice_yaml`.
 - `src/data.rs`, `src/pyfmt/`: Python values and how Python writes them (`repr`, `json.dumps`).
 - `docs/backlog/`: the work to do; `charter.toml`: the checked rules; `.claude/rules/kiln/`:
   kiln's rules for Claude.
