@@ -20,6 +20,7 @@ it holds; no copy of the code.
   methods, `list.append`); `src/posix.rs`: paths normalized like Python's `PurePosixPath`.
 - `src/yaml/`: PyYAML's loader; `src/yaml/dump/`: its emitter, for `to_nice_yaml`.
 - `src/data.rs`, `src/pyfmt/`: Python values and how Python writes them (`repr`, `json.dumps`).
+- `examples/probe.rs`: a probe the fuzzing scripts compare with Python, value by value.
 - `docs/backlog/`: the work to do; `charter.toml`: the checked rules; `.claude/rules/kiln/`:
   kiln's rules for Claude.
 
