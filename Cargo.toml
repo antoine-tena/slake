@@ -5,7 +5,9 @@ edition = "2024"
 
 [dependencies]
 chrono = "0.4"
+fancy-regex = "0.20.0"
 minijinja = { version = "3.0.3", features = ["preserve_order", "serde"] }
+minijinja-contrib = { version = "3.0.3", features = ["pycompat"] }
 regex = "1"
 saphyr-parser = "0.3"
 serde_json = { version = "1", features = ["preserve_order"] }
