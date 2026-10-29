@@ -28,7 +28,7 @@ Or a template directory read as it is on disk, uncommitted changes included (kil
 template development); `commit`, optional, is what to record as `_commit`:
 
 ```json
-{"path": "/home/antoine/code/kiln", "commit": "v0.4.9"}
+{"path": "/path/to/kiln", "commit": "v0.4.9"}
 ```
 
 The template is the directory's `copier.yml` and its `template/` subdirectory, files ending in

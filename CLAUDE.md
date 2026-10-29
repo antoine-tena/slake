@@ -1,7 +1,7 @@
 # slake
 
 kiln's template engine, in Rust: renders a Copier-format template and updates the projects made
-from it with a three-way merge. Its one consumer is kiln (`~/code/kiln`, public
+from it with a three-way merge. Its one consumer is kiln (cloned next to slake, public
 `antoine-tena/kiln`), which will call the binary with JSON in and out.
 
 <!-- This file belongs to the project: kiln wrote it once and never changes it. kiln's rules live
