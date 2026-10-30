@@ -17,8 +17,8 @@ permissions:
 jobs:
 
   charter:
-    uses: antoine-tena/kiln/.github/workflows/charter.yml@develop
+    uses: antoine-tena/kiln/.github/workflows/charter.yml@bd449791cceb736b065f4e007d69e71c12cb992d # develop
 
   # [SECRETS]: gitleaks searches the whole history, with no organisation licence.
   secrets-scan:
-    uses: antoine-tena/kiln/.github/workflows/secrets.yml@develop
+    uses: antoine-tena/kiln/.github/workflows/secrets.yml@bd449791cceb736b065f4e007d69e71c12cb992d # develop

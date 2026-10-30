@@ -4,7 +4,7 @@
 # kiln keeps this file current (`kiln update`); budgets and floors are the project's to lower
 # and raise, and its own rules can be added here.
 
-size = "ember"
+size = "small"
 exclude = ["/migrations/", "/notebooks/"]
 unverified_rules = "scripts/ci/unverified-rules.txt"
 

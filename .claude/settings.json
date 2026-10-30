@@ -7,6 +7,7 @@
     "KILN_TEST_ENV": ""
   },
   "autoCompactWindow": 400000,
+  "plansDirectory": ".claude/plans",
   "extraKnownMarketplaces": {
     "kiln": {
       "source": {
