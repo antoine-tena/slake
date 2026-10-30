@@ -4,7 +4,7 @@ Project rules go in CLAUDE.md or in .claude/rules/ outside kiln/. -->
 
 kiln's template engine, in Rust: renders a Copier-format template and updates the projects made from it with a three-way merge.
 
-Size: **Ember**, a small app or site, one or two people, low stakes (`kiln set size=…` changes it).
+Size: **Small**, a small app or site, one or two people, low stakes (`kiln set size=…` changes it).
 No stack of kiln here: its common part only (CI, hooks, rules, charter).
 The repo is generated and kept current by [kiln](https://github.com/antoine-tena/kiln).
 
@@ -31,6 +31,9 @@ The repo is generated and kept current by [kiln](https://github.com/antoine-tena
 - `docs/backlog/` is the only up-to-date list of work: `backlog.md` (open tickets `T-NN` by
   priority, how to write them in its `README.md`), `done.md` (closed ones), `rejected.md` (what was turned down), `urgent.md`
   (what only a human of the team can do). Skill `/kiln:backlog`.
+- `.claude/`: committed, `settings.json`, `skills/` (the project's own skills), `rules/`,
+  `hooks/` (the scripts of its own hooks) and `plans/` (plan mode's plans); local, ignored by
+  git, `settings.local.json`, `worktrees/`, `memory/` and `sessions/`.
 - `charter.toml`: the checked rules and their budgets; `kiln-waivers.toml`: deliberate
   deviations; `.copier-answers.yml`: the project's settings for kiln (changed by `kiln set`,
   never by hand).
