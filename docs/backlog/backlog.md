@@ -89,8 +89,8 @@ out.
 - **Origin**: the founding plan, constraints and proof
 
 In kiln: its five uses of Copier go through slake, Copier stays behind a setting until T-02 and
-T-04 prove parity, then goes. It starts after kiln's public launch (11 November 2026): slake moves on in
-its own repo meanwhile (antoine, 26 October 2026). No breaking change: same rendered files, `copier.yml` keeps its
+T-04 prove parity, then goes. It was to start after kiln's public launch; that launch is cancelled, no new date (antoine,
+30 October 2026), so only T-02 and T-04 hold it back. No breaking change: same rendered files, `copier.yml` keeps its
 format.
 
 - [ ] Measured with hyperfine on throwaway copies, before and after: `kiln update` on a small
