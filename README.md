@@ -44,11 +44,6 @@ echo '{"contract": 1,
 
 Build it with `cargo build --release` (the toolchain is pinned in `rust-toolchain.toml`).
 
-## The name
-
-Slaking is soaking dry clay in water so that it can be worked again: what an update does to a
-project ion-repo made.
-
 ## License
 
 [MIT](LICENSE)
