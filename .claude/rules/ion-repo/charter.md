@@ -1,6 +1,6 @@
-<!-- Written by kiln and kept current by `kiln update`: do not edit, it would be overwritten. A
-deliberate deviation goes through `kiln waive`; a rule of this project goes in CLAUDE.md or in
-.claude/rules/ outside kiln/. -->
+<!-- Written by ion-repo and kept current by `ion repo update`: do not edit, it would be overwritten. A
+deliberate deviation goes through `ion repo waive`; a rule of this project goes in CLAUDE.md or in
+.claude/rules/ outside ion-repo/. -->
 # Charter
 
 The norm of this repository's code, for humans and agents alike: new code follows it. Rules for
@@ -17,15 +17,15 @@ matching files.
   only goes down; lower it in the commit that reduces the debt. **Review**: no machine check,
   applied in review (`charter --unverified` lists them).
 - On conflict: security and data integrity > published API contract > readability > form.
-- **[WAIVERS]** A deliberate deviation from a rule is declared with `kiln waive <RULE> --reason
+- **[WAIVERS]** A deliberate deviation from a rule is declared with `ion repo waive <RULE> --reason
   "…"` (in `kiln-waivers.toml`), never worked around in silence: a week at first, then a month,
   three months and six months at each renewal; an expired waiver no longer covers anything. A
-  generated file is frozen the same way (`kiln waive <file>`). Never add nor renew a waiver
+  generated file is frozen the same way (`ion repo waive <file>`). Never add nor renew a waiver
   without the user's explicit agreement, and never to make a check pass. [PERSONAL-DATA],
   [SECRETS], [NO-COMMIT-ON-MAIN] and [LOCKED-DEPENDENCIES] cannot be waived.
-- **[REPORT-TO-KILN]** A defect in what kiln provides (a generated file, a rule of this charter,
-  a skill or hook of kiln's Claude Code plugin, a reusable workflow) is not fixed in this repo:
-  `kiln update` would undo it. Report it with `/kiln:report`: a pull request when the fix is
+- **[REPORT-TO-ION-REPO]** A defect in what ion-repo provides (a generated file, a rule of this charter,
+  a skill or hook of ion-repo's Claude Code plugin, a reusable workflow) is not fixed in this repo:
+  `ion repo update` would undo it. Report it with `/repo:report`: a pull request when the fix is
   clear and local, an issue otherwise. It is public, under the user's GitHub account: only with
   their explicit agreement, in English, with nothing private from this repo.
 
@@ -87,7 +87,7 @@ matching files.
   fails when it drifts.
 - **[NEW-DEPENDENCY]** A new dependency is justified in its commit: maintained (a release less
   than a year old), compatible licence, no equivalent already there, no name close to a known
-  package (typosquatting). Upgrades go through `kiln update` (`--major` for major versions), one
+  package (typosquatting). Upgrades go through `ion repo update` (`--major` for major versions), one
   branch per pass; Dependabot only proposes security fixes.
 - **[VULNERABILITY-AUDIT]** CI audits the dependencies at each commit; a high or critical
   vulnerability blocks the merge unless a dated, justified waiver covers it.
@@ -97,7 +97,7 @@ matching files.
 - **[AI-ACCOUNTABILITY]** Code written by an agent follows the same charter and the same review
   as human code; whoever merges it answers for it.
 - **[AI-CONTEXT]** These rules are the agents' reference: a rule an agent keeps breaking is a
-  rule badly written, to be rephrased where it lives (`/kiln:report` for kiln's rules).
+  rule badly written, to be rephrased where it lives (`/repo:report` for ion-repo's rules).
 - **[AI-CONFIDENTIALITY]** No secret and no real personal data is pasted into a conversation with
   an agent; work on test or public data.
 - **[AI-FEATURES]** A feature that calls a language model goes through a queue, caps its cost per call, logs the model and the tokens used,

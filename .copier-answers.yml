@@ -1,6 +1,6 @@
-# kiln's answers for this project: never edit by hand, `kiln set` changes them.
-_commit: v0.4.10-27-g9df528c
-_src_path: https://github.com/antoine-tena/kiln.git
+# ion-repo's answers for this project: never edit by hand, `ion repo set` changes them.
+_commit: v0.4.10-36-g9c8373b
+_src_path: https://github.com/antoine-tena/ion-repo.git
 backend: none
 ci_runner: github
 compact_window: 400000

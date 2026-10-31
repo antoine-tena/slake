@@ -5,7 +5,7 @@ from it with a three-way merge. Its one consumer is ion-repo (cloned next to ion
 `antoine-tena/ion-repo`), which will call the binary with JSON in and out.
 
 <!-- This file belongs to the project: ion-repo wrote it once and never changes it. ion-repo's rules live
-in .claude/rules/kiln/ and are kept current by `ion repo update`. Write here what Claude cannot
+in .claude/rules/ion-repo/ and are kept current by `ion repo update`. Write here what Claude cannot
 guess about this project, and keep it under 200 lines: every session reads it. -->
 
 ## Repo map
@@ -29,7 +29,7 @@ it holds; no copy of the code.
 - `src/yaml/`: PyYAML's loader; `src/yaml/dump/`: its emitter, for `to_nice_yaml`.
 - `src/data.rs`, `src/pyfmt/`: Python values and how Python writes them (`repr`, `json.dumps`).
 - `examples/probe.rs`: a probe the fuzzing scripts compare with Python, value by value.
-- `docs/backlog/`: the work to do; `charter.toml`: the checked rules; `.claude/rules/kiln/`:
+- `docs/backlog/`: the work to do; `charter.toml`: the checked rules; `.claude/rules/ion-repo/`:
   ion-repo's rules for Claude.
 
 ## Notes
