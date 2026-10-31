@@ -1,4 +1,4 @@
-//! The JSON contract with kiln (`docs/contract.md`): a request read from standard input and
+//! The JSON contract with ion-repo (`docs/contract.md`): a request read from standard input and
 //! checked before use, a response written to standard output.
 
 use std::path::{Path, PathBuf};
@@ -10,7 +10,7 @@ use serde_json::{Map as JsonMap, Value as Json};
 use crate::data::{Data, Map};
 use crate::error::{Error, Kind, Result};
 
-/// The version of the contract this slake speaks.
+/// The version of the contract this ion-render speaks.
 pub const CONTRACT: u64 = 1;
 pub const VERSION: &str = env!("CARGO_PKG_VERSION");
 
@@ -78,7 +78,7 @@ pub fn parse<T: DeserializeOwned + Versioned>(input: &str) -> Result<T> {
         return Err(Error::new(
             Kind::Request,
             format!(
-                "contract {} is not supported: this slake speaks contract {CONTRACT}",
+                "contract {} is not supported: this ion-render speaks contract {CONTRACT}",
                 request.contract()
             ),
         ));
@@ -110,7 +110,7 @@ pub fn absolute(path: &Path) -> Result<PathBuf> {
         .map_err(|error| Error::new(Kind::Request, format!("{}: {error}", path.display())))
 }
 
-/// A response: `contract` and `slake` first, then the command's fields.
+/// A response: `contract` and `ion render` first, then the command's fields.
 pub fn success(fields: JsonMap<String, Json>) -> Json {
     let mut response = header();
     response.extend(fields);
@@ -136,6 +136,6 @@ pub fn failure(error: &Error) -> Json {
 fn header() -> JsonMap<String, Json> {
     let mut header = JsonMap::new();
     header.insert("contract".into(), CONTRACT.into());
-    header.insert("slake".into(), VERSION.into());
+    header.insert("ion-render".into(), VERSION.into());
     header
 }

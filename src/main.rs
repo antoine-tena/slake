@@ -1,13 +1,13 @@
-//! The `slake` command: one JSON request on standard input, one JSON response on standard
+//! The `ion render` command: one JSON request on standard input, one JSON response on standard
 //! output, logs on standard error (`docs/contract.md`).
 
 use std::io::Read;
 use std::process::ExitCode;
 
-use slake::contract;
-use slake::error::{Error, Kind};
+use ion_render::contract;
+use ion_render::error::{Error, Kind};
 
-const USAGE: &str = "usage: slake <command> < request.json";
+const USAGE: &str = "usage: ion-render <command> < request.json";
 
 fn read_request() -> Result<String, Error> {
     let mut input = String::new();
@@ -20,18 +20,18 @@ fn read_request() -> Result<String, Error> {
 fn main() -> ExitCode {
     let arguments: Vec<String> = std::env::args().skip(1).collect();
     let response = match arguments.as_slice() {
-        [flag] if flag == "--version" => return print(&format!("slake {}", contract::VERSION)),
+        [flag] if flag == "--version" => return print(&format!("ion-render {}", contract::VERSION)),
         [flag] if flag == "--help" => {
-            let commands = slake::commands::COMMANDS.join(", ");
+            let commands = ion_render::commands::COMMANDS.join(", ");
             return print(&format!("{USAGE}\ncommands: {commands}"));
         }
-        [command] => read_request().and_then(|input| slake::commands::run(command, &input)),
+        [command] => read_request().and_then(|input| ion_render::commands::run(command, &input)),
         _ => Err(Error::new(Kind::Request, USAGE)),
     };
     match response {
         Ok(response) => print(&response.to_string()),
         Err(error) => {
-            eprintln!("slake: {error}");
+            eprintln!("ion-render: {error}");
             println!("{}", contract::failure(&error));
             ExitCode::FAILURE
         }

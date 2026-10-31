@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "env": {
-    "KILN_PROJECT": "slake",
+    "KILN_PROJECT": "ion-render",
     "KILN_BACKEND_DIR": "",
     "KILN_FRONTEND_DIR": "",
     "KILN_TEST_ENV": ""
@@ -9,17 +9,17 @@
   "autoCompactWindow": 400000,
   "plansDirectory": ".claude/plans",
   "extraKnownMarketplaces": {
-    "kiln": {
+    "ion-repo": {
       "source": {
         "source": "github",
-        "repo": "antoine-tena/kiln",
+        "repo": "antoine-tena/ion-repo",
         "ref": "main"
       },
       "autoUpdate": true
     }
   },
   "enabledPlugins": {
-    "kiln@kiln": true
+    "ion-repo@ion-repo": true
   },
   "permissions": {
     "deny": [

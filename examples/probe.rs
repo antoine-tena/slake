@@ -1,10 +1,10 @@
 //! Development probe: one JSON request per line on stdin, one JSON answer per line on stdout,
-//! for the scripts that compare slake with Python (PyYAML, Jinja2).
+//! for the scripts that compare ion-render with Python (PyYAML, Jinja2).
 
 use std::io::{BufRead, Write};
 
-use slake::data::Data;
-use slake::yaml;
+use ion_render::data::Data;
+use ion_render::yaml;
 
 fn answer(request: &serde_json::Value) -> Result<serde_json::Value, String> {
     match request["op"].as_str() {
@@ -20,11 +20,11 @@ fn answer(request: &serde_json::Value) -> Result<serde_json::Value, String> {
             yaml::dump(&value, &options).map(serde_json::Value::String)
         }
         Some("load") => yaml::load(request["text"].as_str().unwrap_or_default())
-            .map(|data| serde_json::Value::String(slake::pyfmt::repr_data(&data))),
+            .map(|data| serde_json::Value::String(ion_render::pyfmt::repr_data(&data))),
         Some("render") => {
             let files: std::collections::HashMap<String, String> =
                 serde_json::from_value(request["files"].clone()).unwrap_or_default();
-            let engine = slake::jinja::Engine::new(std::sync::Arc::new(move |name: &str| {
+            let engine = ion_render::jinja::Engine::new(std::sync::Arc::new(move |name: &str| {
                 files.get(name).cloned()
             }));
             let context = Data::from_json(&request["context"]).to_value();

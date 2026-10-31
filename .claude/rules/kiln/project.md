@@ -1,6 +1,6 @@
 <!-- Written by kiln and kept current by `kiln update`: do not edit, it would be overwritten.
 Project rules go in CLAUDE.md or in .claude/rules/ outside kiln/. -->
-# slake: working here
+# render: working here
 
 kiln's template engine, in Rust: renders a Copier-format template and updates the projects made from it with a three-way merge.
 

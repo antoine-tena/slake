@@ -1,12 +1,12 @@
-# The contract between kiln and slake
+# The contract between ion-repo and ion-render
 
-kiln runs `slake <command>`, writes one JSON request on its standard input, and reads one JSON
-response on its standard output. slake writes its logs on standard error, never on standard
+ion-repo runs `ion render <command>`, writes one JSON request on its standard input, and reads one JSON
+response on its standard output. ion-render writes its logs on standard error, never on standard
 output. This is version 1 of the contract: every request and every response carries
-`"contract": 1`, and a change that would break kiln takes a new number.
+`"contract": 1`, and a change that would break ion-repo takes a new number.
 
-slake renders a [Copier](https://copier.readthedocs.io) template the way Copier 9 does, byte
-for byte, for the part of Copier kiln uses: same files, same modes, same `.copier-answers.yml`.
+ion-render renders a [Copier](https://copier.readthedocs.io) template the way Copier 9 does, byte
+for byte, for the part of Copier ion-repo uses: same files, same modes, same `.copier-answers.yml`.
 Every answers file Copier wrote is read as it is, and `copier.yml` keeps its format.
 
 ## Common to every command
@@ -14,17 +14,17 @@ Every answers file Copier wrote is read as it is, and `copier.yml` keeps its for
 ### The template
 
 ```json
-{"url": "https://github.com/antoine-tena/kiln.git", "ref": "v0.4.9"}
+{"url": "https://github.com/antoine-tena/ion-repo.git", "ref": "v0.4.9"}
 ```
 
-- `url`: a git repository, remote or local. slake keeps a bare mirror of a remote one in its
+- `url`: a git repository, remote or local. ion-render keeps a bare mirror of a remote one in its
   cache and reads every revision from there; it fetches at most once per command, and only when
   `ref` is not in the mirror yet or names a branch, which moves. A local repository is read in
   place, committed files only.
-- `ref`: what kiln picked (a tag, a `git describe` name, a branch or a SHA). It is recorded
+- `ref`: what ion-repo picked (a tag, a `git describe` name, a branch or a SHA). It is recorded
   verbatim as `_commit` in the answers file, as Copier records it.
 
-Or a template directory read as it is on disk, uncommitted changes included (kiln's own tests,
+Or a template directory read as it is on disk, uncommitted changes included (ion-repo's own tests,
 template development); `commit`, optional, is what to record as `_commit`:
 
 ```json
@@ -54,12 +54,12 @@ exact permissions, and its empty directories.
 
 ### Responses and errors
 
-Every response carries `"contract": 1` and `"slake"`, slake's version. The exit code is 0 when
+Every response carries `"contract": 1` and `"ion-render"`, ion-render's version. The exit code is 0 when
 the command did its work, conflicts included: they are in the report. Otherwise it is 1, and the
 response is an error:
 
 ```json
-{"contract": 1, "slake": "0.1.0",
+{"contract": 1, "ion-render": "0.1.0",
  "error": {"kind": "answers", "message": "invalid answers",
            "questions": {"name": "Lowercase letters, digits and dashes only, starting with a letter."}}}
 ```
@@ -69,15 +69,15 @@ file), `ref` (revision not found), `network` (the fetch failed), `answers` (`que
 each refused answer to its validator's message), `project` (not a git work tree, no answers
 file, uncommitted changes), `io`.
 
-## `slake render`
+## `ion render render`
 
-Renders a revision into a new directory: `kiln new`, and kiln's tests.
+Renders a revision into a new directory: `ion repo new`, and ion-repo's tests.
 
 Request: `template`, `answers`, `defaults`, and `destination`, a directory that must be empty or
 missing.
 
 ```json
-{"contract": 1, "slake": "0.1.0",
+{"contract": 1, "ion-render": "0.1.0",
  "commit": "v0.4.9", "sha": "f0ab621…",
  "answers": {"name": "demo", "backend": "django", "frontend": "nuxt"},
  "files": [".copier-answers.yml", "CLAUDE.md", "backend/manage.py"]}
@@ -87,15 +87,15 @@ missing.
 commit (absent for a directory that is not a git checkout), `answers` the recorded answers
 (without the `_` keys), `files` every file written, sorted.
 
-## `slake update`
+## `ion render update`
 
-Updates a project to another revision, or the same one with changed answers: `kiln update`,
-`kiln set`.
+Updates a project to another revision, or the same one with changed answers: `ion repo update`,
+`ion repo set`.
 
 Request: `project` (the repo's root, where `.copier-answers.yml` is), `template` (`ref` alone:
 the URL comes from the answers' `_src_path`; or a full template to replace it), `changes`
-(answers that change), `defaults`, and `exclude`, gitignore-style patterns slake must not touch
-(the files frozen by `kiln-waivers.toml`; the answers' `kept` is added by slake).
+(answers that change), `defaults`, and `exclude`, gitignore-style patterns ion-render must not touch
+(the files frozen by `kiln-waivers.toml`; the answers' `kept` is added by ion-render).
 
 The project must be a git work tree without uncommitted changes. Then:
 
@@ -115,7 +115,7 @@ The project must be a git work tree without uncommitted changes. Then:
 5. The answers file is written again.
 
 ```json
-{"contract": 1, "slake": "0.1.0",
+{"contract": 1, "ion-render": "0.1.0",
  "from": {"commit": "v0.4.8", "sha": "…"},
  "to": {"commit": "v0.4.9", "sha": "…"},
  "answers": {"name": "demo"},
@@ -132,36 +132,36 @@ markers (also in `updated` or `added`); `excluded` each excluded path whose rend
 between the two revisions (`reason`: `frozen`, from `exclude`, or `kept`), with the unified diff
 of the two renders.
 
-## `slake adopt`
+## `ion render adopt`
 
-Brings a repo kiln did not generate under kiln: `kiln adopt`.
+Brings a repo ion-repo did not generate under ion-repo: `ion repo adopt`.
 
-Request: `project`, `template`, `answers` (what kiln inferred from the repo), `defaults`, and
+Request: `project`, `template`, `answers` (what ion-repo inferred from the repo), `defaults`, and
 `keep`, the repo's own code folders (`["backend"]`).
 
-slake renders the template, keeps `keep` and every rendered file the repo already has (the
+ion-render renders the template, keeps `keep` and every rendered file the repo already has (the
 answers file excepted), records that list as the `kept` answer, and lays every other file. It
 never overwrites one.
 
 ```json
-{"contract": 1, "slake": "0.1.0", "commit": "v0.4.9", "sha": "…",
+{"contract": 1, "ion-render": "0.1.0", "commit": "v0.4.9", "sha": "…",
  "answers": {"name": "demo", "kept": [".gitignore", "README.md", "backend"]},
  "laid": ["CLAUDE.md", "charter.toml"],
  "kept": [{"path": ".gitignore", "template": "/target\n.env\n…"},
           {"path": "backend", "folder": true}]}
 ```
 
-`template` is what the template would have written in a kept text file, for kiln to compare or
+`template` is what the template would have written in a kept text file, for ion-repo to compare or
 merge (the template's `.gitignore` lines).
 
-## `slake questions`
+## `ion render questions`
 
-The questionnaire, without asking anything: `kiln new --all-questions` asks it itself.
+The questionnaire, without asking anything: `ion repo new --all-questions` asks it itself.
 
 Request: `template`, `answers` (given so far), `defaults`.
 
 ```json
-{"contract": 1, "slake": "0.1.0",
+{"contract": 1, "ion-render": "0.1.0",
  "questions": [
    {"key": "size", "type": "str", "help": "How hot does this one burn?",
     "choices": [{"label": "Spark: a script, a personal tool, a one-off analysis", "value": "spark"}],
@@ -170,10 +170,10 @@ Request: `template`, `answers` (given so far), `defaults`.
 
 Every question of `copier.yml` in order, with its `help`, `choices` and `default` rendered from
 the answers given, its `when` evaluated, whether it is answered, and its validator's message for
-the given answer (`null` when valid). kiln asks the first question with `when` true that is not
+the given answer (`null` when valid). ion-repo asks the first question with `when` true that is not
 answered, then calls again with that answer. Types: `str`, `bool`, `int`, `float`, `json`,
 `yaml`.
 
-## What slake does not do
+## What ion-render does not do
 
-What kiln does not use is not built: see `docs/backlog/rejected.md`.
+What ion-repo does not use is not built: see `docs/backlog/rejected.md`.

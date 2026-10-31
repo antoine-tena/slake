@@ -15,7 +15,7 @@ pub fn run(command: &str, input: &str) -> Result<Json> {
         _ => Err(Error::new(
             Kind::Request,
             format!(
-                "unknown command {command:?}: slake knows {}",
+                "unknown command {command:?}: ion-render knows {}",
                 COMMANDS.join(", ")
             ),
         )),

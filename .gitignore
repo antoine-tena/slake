@@ -1,6 +1,6 @@
 /target
 
-# kiln
+# ion-repo
 .env
 .env.*
 !.env.example

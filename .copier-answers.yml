@@ -1,5 +1,5 @@
 # kiln's answers for this project: never edit by hand, `kiln set` changes them.
-_commit: v0.4.10-17-g9476eb7
+_commit: v0.4.10-27-g9df528c
 _src_path: https://github.com/antoine-tena/kiln.git
 backend: none
 ci_runner: github
@@ -18,7 +18,7 @@ language_custom: true
 language_docs: en
 language_tickets: en
 language_ui: en
-name: slake
+name: ion-render
 north_star: 'kiln runs on slake: every stack rendered byte for byte as Copier does,
     kiln update in 5 s or less'
 owner: antoine-tena
@@ -31,4 +31,4 @@ statusline_ci: true
 team:
 - antoine-tena
 timezone: Europe/Paris
-title: slake
+title: render
