@@ -1,5 +1,5 @@
 # Rules of the instructions that no check enforces: applied in review.
-# File listed again by kiln (set, update) from the instructions and charter.toml: to take a rule
+# File listed again by ion-repo (set, update) from the instructions and charter.toml: to take a rule
 # out, give it a check in charter.toml, or amend it where it is written.
 [WAIVERS]
 [REPORT-TO-ION-REPO]
