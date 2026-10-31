@@ -1,4 +1,4 @@
-//! Where a revision is read from: a bare mirror of a remote repository, kept in slake's cache
+//! Where a revision is read from: a bare mirror of a remote repository, kept in ion-render's cache
 //! and fetched only when needed, a local repository read in place, or a directory.
 
 use std::path::{Path, PathBuf};
@@ -30,7 +30,7 @@ pub fn load(template: Template, cache: Option<&Path>, offline: bool) -> Result<R
     }
 }
 
-/// A repository on this machine: Copier clones it afresh each time, slake reads it in place.
+/// A repository on this machine: Copier clones it afresh each time, ion-render reads it in place.
 fn local_repository(url: &str) -> Option<PathBuf> {
     let path = Path::new(url.strip_prefix("file://").unwrap_or(url));
     if !path.exists() {
@@ -41,7 +41,7 @@ fn local_repository(url: &str) -> Option<PathBuf> {
 
 pub fn default_cache() -> PathBuf {
     match std::env::var_os("XDG_CACHE_HOME").filter(|value| !value.is_empty()) {
-        Some(cache) => PathBuf::from(cache).join("slake"),
+        Some(cache) => PathBuf::from(cache).join("ion-render"),
         None => PathBuf::from(std::env::var_os("HOME").unwrap_or_default()).join(".cache/slake"),
     }
 }

@@ -1,11 +1,11 @@
-# slake
+# ion-render
 
-kiln's template engine, in Rust: renders a Copier-format template and updates the projects made
-from it with a three-way merge. Its one consumer is kiln (cloned next to slake, public
-`antoine-tena/kiln`), which will call the binary with JSON in and out.
+ion-repo's template engine, in Rust: renders a Copier-format template and updates the projects made
+from it with a three-way merge. Its one consumer is ion-repo (cloned next to ion-render, public
+`antoine-tena/ion-repo`), which will call the binary with JSON in and out.
 
-<!-- This file belongs to the project: kiln wrote it once and never changes it. kiln's rules live
-in .claude/rules/kiln/ and are kept current by `kiln update`. Write here what Claude cannot
+<!-- This file belongs to the project: ion-repo wrote it once and never changes it. ion-repo's rules live
+in .claude/rules/kiln/ and are kept current by `ion repo update`. Write here what Claude cannot
 guess about this project, and keep it under 200 lines: every session reads it. -->
 
 ## Repo map
@@ -14,8 +14,8 @@ Where to look, so as not to explore: read it before opening files, and update it
 that adds, moves or removes a directory, a domain or an entry point. One line per place, what
 it holds; no copy of the code.
 
-- `README.md`: what slake is, why, its targets (public showcase); `LICENSE`: MIT.
-- `docs/contract.md`: the JSON contract kiln calls slake with (version 1).
+- `README.md`: what ion-render is, why, its targets (public showcase); `LICENSE`: MIT.
+- `docs/contract.md`: the JSON contract ion-repo calls ion-render with (version 1).
 - `src/main.rs`: the binary, JSON in and out; `src/commands/`: one module per command
   (`render`); `src/contract.rs`: requests checked, responses written; `src/source.rs`: where a
   revision is read (cached mirror, local repository, directory).
@@ -30,15 +30,15 @@ it holds; no copy of the code.
 - `src/data.rs`, `src/pyfmt/`: Python values and how Python writes them (`repr`, `json.dumps`).
 - `examples/probe.rs`: a probe the fuzzing scripts compare with Python, value by value.
 - `docs/backlog/`: the work to do; `charter.toml`: the checked rules; `.claude/rules/kiln/`:
-  kiln's rules for Claude.
+  ion-repo's rules for Claude.
 
 ## Notes
 
 - Parity before anything else: the same files as Copier, byte for byte, for every stack of
-  kiln's `tests/test_template.py`, then a replay of kiln's `tests/test_e2e.py` (every kiln
+  ion-repo's `tests/test_template.py`, then a replay of ion-repo's `tests/test_e2e.py` (every ion-repo
   release since v0.3.0). Only throwaway clones are updated, never `antoine-tena/kiln-rehearsal`.
-- No breaking change for kiln's repos: every existing `.copier-answers.yml` (`_commit`,
+- No breaking change for ion-repo's repos: every existing `.copier-answers.yml` (`_commit`,
   `_src_path`, answers, `kept`) is read as it is, and `copier.yml` keeps its format. Copier
-  stays kiln's fallback, behind a setting, until parity is proven.
-- kiln has no Rust stack yet (kiln's T-320, T-321): `kiln check` runs `charter` only, and
-  Rust's own checks are this repo's to run. A gap of kiln met here is fixed in kiln.
+  stays ion-repo's fallback, behind a setting, until parity is proven.
+- ion-repo has no Rust stack yet (ion-repo's T-320, T-321): `ion repo check` runs `charter` only, and
+  Rust's own checks are this repo's to run. A gap of ion-repo met here is fixed in ion-repo.

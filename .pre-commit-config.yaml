@@ -1,11 +1,11 @@
 # Guards and CI checks replayed before each commit.
 #
-# Installed once, at the root of the repo: kiln install (or: uv tool install pre-commit &&
+# Installed once, at the root of the repo: ion-repo install (or: uv tool install pre-commit &&
 # pre-commit install). The hook holds for the main tree and every worktree. Replay everything:
 #   pre-commit run --all-files
-# Local hooks call the project's tools (uv) and `charter`, installed with kiln: fast linters on
+# Local hooks call the project's tools (uv) and `charter`, installed with ion-repo: fast linters on
 # the committed files alone. Typing, tests and the CI run only when a release goes out (skill
-# /kiln:release), never at a push to develop.
+# /repo:release), never at a push to develop.
 default_install_hook_types: [pre-commit]
 default_stages: [pre-commit]
 repos:

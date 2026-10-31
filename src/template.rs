@@ -10,7 +10,7 @@ use crate::error::{Error, Kind, Result};
 use crate::git;
 
 /// Where the template's files live, under the template's root: Copier's `_subdirectory`, the
-/// only one kiln uses.
+/// only one ion-repo uses.
 pub const SUBDIRECTORY: &str = "template";
 pub const SUFFIX: &str = ".jinja";
 pub const ANSWERS_FILE: &str = ".copier-answers.yml";

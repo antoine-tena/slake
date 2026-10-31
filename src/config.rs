@@ -1,5 +1,5 @@
 //! The settings and questions of a `copier.yml`, refused when they ask for a part of Copier
-//! slake does not have.
+//! ion-render does not have.
 
 use crate::data::{Data, Map};
 use crate::error::{Error, Result};
@@ -11,7 +11,7 @@ pub struct Config {
     pub skip_if_exists: Vec<String>,
 }
 
-/// Settings kiln's template does not use: refused unless empty.
+/// Settings ion-repo's template does not use: refused unless empty.
 const UNSUPPORTED: [&str; 9] = [
     "envops",
     "exclude",

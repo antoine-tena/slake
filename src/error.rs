@@ -1,4 +1,4 @@
-//! The errors of the contract: a kind kiln can act on, a message for people.
+//! The errors of the contract: a kind ion-repo can act on, a message for people.
 
 use std::fmt;
 

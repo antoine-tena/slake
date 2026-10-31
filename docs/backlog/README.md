@@ -47,7 +47,7 @@ is old and must be checked** against the current code; they are never edited.
   turning their own first name into their login; never someone else's (only the owner hands a
   ticket over).
 - **Releases**: the `## 🚀 Releases` section at the top places every open ticket in a planned
-  release (`/kiln:backlog plan`); numbers are planned, not promised, until the candidate is cut.
+  release (`/repo:backlog plan`); numbers are planned, not promised, until the candidate is cut.
 - **Closing a ticket**: remove it from its section and add a line at the top of
   [done.md](done.md): `- **YYYY-MM-DD** · T-NN · Title — what was done (branch) · opened YYYY-MM-DD`.
 - **Details in archived audits**: when a ticket quotes lines of `docs/_archive/`, the original

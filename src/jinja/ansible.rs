@@ -1,4 +1,4 @@
-//! The Ansible filters Copier loads (`jinja2_ansible_filters`): those kiln's templates use, with
+//! The Ansible filters Copier loads (`jinja2_ansible_filters`): those ion-repo's templates use, with
 //! Python's semantics.
 
 use std::sync::LazyLock;

@@ -1,5 +1,5 @@
-//! `slake render`: a revision rendered into a new directory, as `copier copy --defaults` does
-//! (`kiln new`, kiln's tests).
+//! `ion render render`: a revision rendered into a new directory, as `copier copy --defaults` does
+//! (`ion repo new`, ion-repo's tests).
 
 use std::path::Path;
 use std::sync::Arc;
@@ -44,7 +44,7 @@ fn write_new(rendered: &render::Rendered, destination: &Path, is_new: bool) -> R
         && is_new
         && let Err(cleanup) = std::fs::remove_dir_all(destination)
     {
-        eprintln!("slake: cannot remove {}: {cleanup}", destination.display());
+        eprintln!("ion-render: cannot remove {}: {cleanup}", destination.display());
     }
     written
 }
