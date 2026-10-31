@@ -1,10 +1,10 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "env": {
-    "KILN_PROJECT": "ion-render",
-    "KILN_BACKEND_DIR": "",
-    "KILN_FRONTEND_DIR": "",
-    "KILN_TEST_ENV": ""
+    "ION_REPO_PROJECT": "ion-render",
+    "ION_REPO_BACKEND_DIR": "",
+    "ION_REPO_FRONTEND_DIR": "",
+    "ION_REPO_TEST_ENV": ""
   },
   "autoCompactWindow": 400000,
   "plansDirectory": ".claude/plans",
@@ -19,7 +19,7 @@
     }
   },
   "enabledPlugins": {
-    "ion-repo@ion-repo": true
+    "repo@ion-repo": true
   },
   "permissions": {
     "deny": [

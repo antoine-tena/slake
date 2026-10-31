@@ -8,4 +8,4 @@ updates:
     cooldown:
       default-days: 7
     ignore:
-      - dependency-name: "antoine-tena/kiln/*"
+      - dependency-name: "antoine-tena/ion-repo/*"

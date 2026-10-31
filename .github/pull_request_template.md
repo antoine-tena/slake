@@ -12,7 +12,7 @@
 
 ## Checks
 
-- [ ] The code follows the rules of `.claude/rules/kiln/` and `CLAUDE.md` ([FILE-SIZE], [GENERIC-NAMES], [NO-MAGIC-VALUES])
+- [ ] The code follows the rules of `.claude/rules/ion-repo/` and `CLAUDE.md` ([FILE-SIZE], [GENERIC-NAMES], [NO-MAGIC-VALUES])
 - [ ] Commits of 10 files at most, prefixed titles of 50 characters at most ([COMMITS])
 - [ ] A bug fix comes with the test that would have caught it ([REGRESSION-TEST])
 - [ ] No secret nor real personal data in the diff ([SECRETS], [PERSONAL-DATA])

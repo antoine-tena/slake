@@ -2,7 +2,7 @@
 # File listed again by kiln (set, update) from the instructions and charter.toml: to take a rule
 # out, give it a check in charter.toml, or amend it where it is written.
 [WAIVERS]
-[REPORT-TO-KILN]
+[REPORT-TO-ION-REPO]
 [FUNCTION-SIZE]
 [ONE-CLASS]
 [GENERIC-NAMES]

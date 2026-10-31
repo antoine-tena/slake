@@ -1,6 +1,6 @@
 # Guards and CI checks replayed before each commit.
 #
-# Installed once, at the root of the repo: ion-repo install (or: uv tool install pre-commit &&
+# Installed once, at the root of the repo: ion repo install (or: uv tool install pre-commit &&
 # pre-commit install). The hook holds for the main tree and every worktree. Replay everything:
 #   pre-commit run --all-files
 # Local hooks call the project's tools (uv) and `charter`, installed with ion-repo: fast linters on
