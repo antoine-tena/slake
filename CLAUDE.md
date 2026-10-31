@@ -1,4 +1,4 @@
-# ion-render
+# render
 
 ion-repo's template engine, in Rust: renders a Copier-format template and updates the projects made
 from it with a three-way merge. Its one consumer is ion-repo (cloned next to ion-render, public
