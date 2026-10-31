@@ -19,8 +19,8 @@ language_docs: en
 language_tickets: en
 language_ui: en
 name: ion-render
-north_star: 'kiln runs on slake: every stack rendered byte for byte as Copier does,
-    kiln update in 5 s or less'
+north_star: 'ion-repo runs on ion-render: every stack rendered byte for byte as Copier
+    does, ion repo update in 5 s or less'
 owner: antoine-tena
 podman: false
 prod_health_url: ''

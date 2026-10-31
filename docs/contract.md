@@ -49,7 +49,7 @@ exact permissions, and its empty directories.
 
 ### Optional fields
 
-- `cache`: the mirror's directory; by default `$XDG_CACHE_HOME/slake`, else `~/.cache/slake`.
+- `cache`: the mirror's directory; by default `$XDG_CACHE_HOME/ion-render`, else `~/.cache/ion-render`.
 - `offline`: `true` never fetches; a `ref` missing from the mirror is then an error.
 
 ### Responses and errors
